@@ -10,8 +10,8 @@ import './style.scss'
 // console.log(a)
 
 //создание переменной 
-let newVar = 5
-newVar = 5
+// let newVar = 5
+// newVar = 5
 
 // let noVal
 // noVal = 'g'
@@ -110,8 +110,8 @@ console.log(null)
 console.log(typeof alert)
 console.log(typeof null)
 console.log(typeof '')
-console.log(`В этой строке мы сложим 2 числа ${newVar+5}`)
-console.log('В этой строке мы сложим 2 числа ' + (newVar + 5) + '. Вот так')
+// console.log(`В этой строке мы сложим 2 числа ${newVar+5}`)
+// console.log('В этой строке мы сложим 2 числа ' + (newVar + 5) + '. Вот так')
 
 // number для любых чисел: целочисленных или чисел с плавающей точкой; целочисленные значения ограничены диапазоном ±(253 - 1).
 // bigint для целых чисел произвольной длины.
@@ -155,38 +155,114 @@ console.log(isNaN(NaN))
 console.log(isNaN(1))
 
 
-// let year = 2015
-// let month = 1
+let year = 2015
+let month = 1
 
-// if (year == 2015) {
-//   console.log('yes')
-// }
+if (year == 2015) {
+  console.log('yes')
+}
 
-// if (year==2015) {
-//   console.log('yes')
-// } else {
-//   if (month==1) {
-//     console.log('mo==1')
-//   }
-//   console.log('no')
-// }
+if (year==2015) {
+  console.log('yes')
+} else {
+  if (month==1) {
+    console.log('mo==1')
+  }
+  console.log('no')
+}
 
-// if (year==2015) {
-//   console.log('yes')
-// } else if (year==2010) {
-//   console.log('maybe')
-// } else {
-//   console.log('no')
-// }
+if (year==2015) {
+  console.log('yes')
+} else if (year==2010) {
+  console.log('maybe')
+} else {
+  console.log('no')
+}
 
-// let age = 18
-// let message
-// if (age>16) {
-//   message='hello'
-// } else {
-//   message='too yang'
-// }
-// console.log(message)
+let age = 18
+let message
+if (age>16) {
+  message='hello'
+} else {
+  message='too yang'
+}
+console.log(message)
+
+
+// переменная = (условие) ? Значение, которое присвоится в случае истинности условия : Значение, которое присвоится в случае ложности условия
+// const isThursday = new Date().getDate() == 22 ? true : false
+// console.log(isThursday)
+
+let x = '1'
+switch (x) {
+  case '1':  // if (x === '1')
+    console.log('x=1')
+    break
+  case '2':  // if (x === '2')
+    console.log('x=2')
+    break
+  default:
+    console.log('x не 1 и не 2')
+}
+
+console.log(true || true)   
+console.log(false || true)  
+console.log(true || false)  
+console.log(false || false)
+
+// Оператор || выполняет следующие действия:
+
+// Вычисляет операнды слева направо.
+// Каждый операнд конвертирует в логическое значение.Если результат true, останавливается и возвращает исходное значение этого операнда.
+// Если все операнды являются ложными(false), возвращает последний из них.
+console.log(0 || 0 || 'gfdg' || 0)
+console.log(0 || 0 || 0 || null)
+
+let aStr = ''
+let bStr = 'Default'
+
+aStr ||= bStr
+aStr = aStr ? aStr : bStr
+console.log(aStr)
+
+console.log(true && true)
+console.log(false && true)
+console.log(true && false)
+console.log(false && false)
+
+// Оператор && выполняет следующие действия:
+
+// Вычисляет операнды слева направо.
+// Каждый операнд преобразует в логическое значение.Если результат false, останавливается и возвращает исходное значение этого операнда.
+// Если все операнды были истинными, возвращается последний.
+// Другими словами, И возвращает первое ложное значение.Или последнее, если ничего не найдено.
+
+console.log(1 && 11 && 'gfdg' && 'sdf')
+console.log('' && 0 && 0 && null)
+
+aStr = 'Hello'
+
+aStr &&= aStr + ' user'
+aStr = aStr ? aStr + '!' : aStr
+console.log(aStr)
+
+// Оператор ! принимает один аргумент и выполняет следующие действия:
+
+// Сначала приводит аргумент к логическому типу true / false.
+// Затем возвращает противоположное значение.
+
+console.log(!true)
+console.log(!false)
+console.log(!!1)
+console.log(Boolean(1))
+console.log(!!0)
+console.log(Boolean(0))
+
+
+
+
+
+
 
 
 // let value = prompt('Какое «официальное» название JavaScript?')
