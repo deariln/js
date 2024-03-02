@@ -10,8 +10,8 @@ import './style.scss'
 // console.log(a)
 
 //создание переменной 
-// let newVar = 5
-// newVar = 5
+let newVar = 5
+newVar = 5
 
 // let noVal
 // noVal = 'g'
@@ -87,9 +87,106 @@ console.log('3 % 2 =', 3%2) //остаток от деления
 // var dollar = Number(prompt('Введите количество долларов для обмена: '));
 // alert("По текущему курсу при обмене вы получите " + dollar * rate + " евро");
 
+console.log(typeof 12)
+console.log(typeof 12.6)
+console.log(typeof (12.6/0))
+console.log(12.6/0)
+console.log(parseInt('a'))
+console.log(parseInt('12aaa'))
+console.log(parseFloat('12.5aaa'))
+console.log(+'12.5aaa')
+console.log(+'12.5')
+console.log(Number('12.5'))
+console.log(String(12.5))
+console.log(typeof '12')
+console.log(typeof true)
+console.log(typeof false)
+console.log(typeof [])
+console.log(typeof {})
+console.log(typeof undefined)
+let variable
+console.log(variable)
+console.log(null)
+console.log(typeof alert)
+console.log(typeof null)
+console.log(typeof '')
+console.log(`В этой строке мы сложим 2 числа ${newVar+5}`)
+console.log('В этой строке мы сложим 2 числа ' + (newVar + 5) + '. Вот так')
+
+// number для любых чисел: целочисленных или чисел с плавающей точкой; целочисленные значения ограничены диапазоном ±(253 - 1).
+// bigint для целых чисел произвольной длины.
+// string для строк.Строка может содержать ноль или больше символов, нет отдельного символьного типа.
+// boolean для true / false.
+// null для неизвестных значений – отдельный тип, имеющий одно значение null.
+// undefined для неприсвоенных значений – отдельный тип, имеющий одно значение undefined.
+// symbol для уникальных идентификаторов.
+// И один не является «примитивным» и стоит особняком:
+// object для более сложных структур данных.
+
+let num1 = 1
+let num2 = 2
+console.log(2 > 1)
+console.log(num1 == num2)
+console.log(num1 != num2)
+console.log(num1 != 1)
+console.log(num1 == 1)
+console.log(num1 === 1)
+console.log(1 === +'1')
+
+console.log(+false)
+console.log(+true)
 
 
+// Все значения, которы станут false при преобразовании в boolean тип
+console.log(Boolean(''))
+console.log(Boolean(0))
+console.log(Boolean(undefined))
+console.log(Boolean(null))
+console.log(Boolean(NaN))
+console.log(Boolean(false))
 
+console.log('z' > 'Z')
+
+console.log(null === undefined)
+console.log(null == undefined)
+console.log(null == null)
+
+console.log(isNaN(NaN))
+console.log(isNaN(1))
+
+
+// let year = 2015
+// let month = 1
+
+// if (year == 2015) {
+//   console.log('yes')
+// }
+
+// if (year==2015) {
+//   console.log('yes')
+// } else {
+//   if (month==1) {
+//     console.log('mo==1')
+//   }
+//   console.log('no')
+// }
+
+// if (year==2015) {
+//   console.log('yes')
+// } else if (year==2010) {
+//   console.log('maybe')
+// } else {
+//   console.log('no')
+// }
+
+// let age = 18
+// let message
+// if (age>16) {
+//   message='hello'
+// } else {
+//   message='too yang'
+// }
+// console.log(message)
 
 
 // let value = prompt('Какое «официальное» название JavaScript?')
@@ -147,13 +244,3 @@ console.log('3 % 2 =', 3%2) //остаток от деления
 // console.log(text)
 
 
-//Посчитать факториал введенного пользователем числа
- 
-// let factorial = 4
-//  num = 5
-//  result = 96
-//  while(result) {
-//     result *=factorial
-//     num--
-//  }
-//  console.log(result)
