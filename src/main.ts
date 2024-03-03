@@ -123,18 +123,18 @@ console.log(typeof '')
 // И один не является «примитивным» и стоит особняком:
 // object для более сложных структур данных.
 
-let num1 = 1
-let num2 = 2
-console.log(2 > 1)
-console.log(num1 == num2)
-console.log(num1 != num2)
-console.log(num1 != 1)
-console.log(num1 == 1)
-console.log(num1 === 1)
-console.log(1 === +'1')
+// let num1 = 1
+// let num2 = 2
+// console.log(2 > 1)
+// console.log(num1 == num2)
+// console.log(num1 != num2)
+// console.log(num1 != 1)
+// console.log(num1 == 1)
+// console.log(num1 === 1)
+// console.log(1 === +'1')
 
-console.log(+false)
-console.log(+true)
+// console.log(+false)
+// console.log(+true)
 
 
 // Все значения, которы станут false при преобразовании в boolean тип
@@ -179,14 +179,14 @@ if (year==2015) {
   console.log('no')
 }
 
-let age = 18
-let message
-if (age>16) {
-  message='hello'
-} else {
-  message='too yang'
-}
-console.log(message)
+// let age = 18
+// let message
+// if (age>16) {
+//   message='hello'
+// } else {
+//   message='too yang'
+// }
+// console.log(message)
 
 
 // переменная = (условие) ? Значение, которое присвоится в случае истинности условия : Значение, которое присвоится в случае ложности условия
@@ -258,12 +258,43 @@ console.log(Boolean(1))
 console.log(!!0)
 console.log(Boolean(0))
 
+// while (условие) {
+   // код
+   // также называемый "телом цикла"
+// }
 
+// Цикл с предусловием
+let i = 0
+while (i<5) {
+  i++
+  console.log(i)
+}
 
+// Цикл с постусловием
+i = 0
+do {
+  i++
+  console.log(i)
+} while(i<0)
 
+// for (начало; условие; шаг) {
+  // ... тело цикла ...
+  // }
+  
+for (let i=3; i < 5; i++ ) {
+  if (i==3) continue
+  console.log(i)
+  break
+}
 
+// break - выход из цикла
+// continue - переход на следующую итерацию без выполнения оставшегося тела цикла
 
-
+for (let x=0; x<2; x++) {
+  for (let y=0; y<2; y++) {
+    console.log(`(x:${x}, y:${y})`)
+  }
+}
 
 // let value = prompt('Какое «официальное» название JavaScript?')
 // if   (value == 'ECMAScript') {
@@ -284,7 +315,7 @@ console.log(Boolean(0))
 // console.log(text) 
 
 
-//Пользователь ввел число, а на экран вывелись все числа
+//Пользователь ввел число, а на экран вывелись все числа от веденного до 0
 //от введенного до 0
 // userInput = 10
 // text = ''
@@ -306,7 +337,7 @@ console.log(Boolean(0))
 // console.log(result)
 
 
-//запросить два числа т найти общие делители 
+//запросить два числа и найти общие делители 
 // let num1 = 416
 // let num2 = 793
 // text = ''
@@ -319,4 +350,56 @@ console.log(Boolean(0))
 // }
 // console.log(text)
 
+
+// ДЗ-2 
+// задание 1
+//Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2), подростком (12–18), взрослым
+//(18_60) или пенсионером (60– ...).
+
+let age = 2
+let message
+if (age <= 11) {
+    message = 'Вы ребенок'
+} else if (age <= 18) {
+    message = 'Вы подросток'
+} else if (age < 60) {
+    message = 'Вы взрослый'
+} else {
+    message = 'Вы пенсионер'
+}
+console.log(message)
+
+// задание 2
+//Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен на этой клавише (1–!,
+//2–@, 3–# и т. д).
+
+let number = prompt('Введите число')
+if (number == '0') {
+  alert(')')
+} else if (number == '1') {
+  alert('!')
+} else if (number == '2') {
+  alert('@')
+} else if (number == '3') {
+  alert('#')
+} else if (number == '4') {
+  alert('$')
+} else if (number == '5') {
+  alert('%')
+} else if (number == '6') {
+  alert('^')
+} else if (number == '7') {
+  alert('&') 
+} else if (number == '8') {
+  alert('*')
+} else if (number == '9') {
+  alert('(')
+}
+
+// задание 3 
+// Запросить у пользователя трехзначное и число и проверить, есть ли в нем одинаковые цифры.
+
+// задание 4 
+//Запросить у пользователя год и проверить, високосный он или нет. Високосный год либо кратен 400, либо кратен 4 и
+//при этом не кратен 100
 
