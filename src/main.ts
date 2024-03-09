@@ -264,18 +264,18 @@ console.log(Boolean(0))
 // }
 
 // Цикл с предусловием
-let i = 0
-while (i<5) {
-  i++
-  console.log(i)
-}
+// let i = 0
+// while (i<5) {
+//   i++
+//   console.log(i)
+// }
 
 // Цикл с постусловием
-i = 0
-do {
-  i++
-  console.log(i)
-} while(i<0)
+// i = 0
+// do {
+//   i++
+//   console.log(i)
+// } while(i<0)
 
 // for (начало; условие; шаг) {
   // ... тело цикла ...
@@ -356,18 +356,18 @@ for (let x=0; x<2; x++) {
 //Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2), подростком (12–18), взрослым
 //(18_60) или пенсионером (60– ...).
 
-let age = 2
-let message
-if (age <= 11) {
-    message = 'Вы ребенок'
-} else if (age <= 18) {
-    message = 'Вы подросток'
-} else if (age < 60) {
-    message = 'Вы взрослый'
-} else {
-    message = 'Вы пенсионер'
-}
-console.log(message)
+// let age = 2
+// let message
+// if (age <= 11) {
+//     message = 'Вы ребенок'
+// } else if (age <= 18) {
+//     message = 'Вы подросток'
+// } else if (age < 60) {
+//     message = 'Вы взрослый'
+// } else {
+//     message = 'Вы пенсионер'
+// }
+// console.log(message)
 
 // задание 2
 //Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен на этой клавише (1–!,
@@ -398,9 +398,130 @@ console.log(message)
 
 // задание 3 
 // Запросить у пользователя трехзначное и число и проверить, есть ли в нем одинаковые цифры.
+// const num = 588
+// const arr = num.toString
+// let a = arr[0]
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] !== arr[i + 1]) {
+//     a = arr[i]
+//   } else {
+//     console.log('в числе цифры повторяются')
+//     break
+//   }
+//   if (a === arr[i + 1]) {
+//     console.log('в числе цифры повторяются')
+//     break
+//   }
+//   if(arr[i] === arr[i + 2]) {
+//     console.log('в числе цифры повторяются')
+//   }
+// }
 
 // задание 4 
 //Запросить у пользователя год и проверить, високосный он или нет. Високосный год либо кратен 400, либо кратен 4 и
 //при этом не кратен 100
+
+//практика 4 задание 1
+//Написать функцию, которая принимает 2 числа и возвращает меньшее из них.
+// function minNumber(num1, num2) {
+//    if (num1>num2) {
+//     return num2
+//    } else {
+//     return num1
+//    }
+// }
+// console.log(minNumber(3,5))
+
+//Задание 2 - Написать функцию, которая возводит переданное число в указанную степень.
+// function number(a,b)  {
+//   return a**b
+// }
+// console.log(number(2,2))
+
+//Задание 3 - Написать функцию, которая принимает 2 числа и знак (+ - * /), считает пример и возвращает результат.
+// function result(number1,number2,sign) {
+//   if (sign ==='+') {
+//   return number1 + number2
+//   } else if (sign === '-') {
+//     return number1 - number2
+//   } else if (sign === '*') {
+//     return number1 * number2
+//   } else if (sign ==='/') {
+//     return number1 / number2
+//   }
+// }
+// console.log(result(4,3, '+'))
+// console.log(result(5,4, '-'))
+// console.log(result(2,2, '*'))
+// console.log(result(6,2, '/'))
+
+//Задание 4 - Написать функцию, которая проверяет, является ли переданное ей число простым.
+
+// function primeNum (num) {
+//   if (num <= 1) {
+//     return false
+//   }
+//   for (let i =2; i< num; i++) {
+//     if (num % i === 0) {
+//       return false
+//     }
+//   }
+//   return true
+// }
+// console.log(primeNum(5))
+// console.log(primeNum(10))
+
+
+// p 5 
+// Написать функцию, которая выводит переданное ей число задом наперед.
+//Например: число 1234 вывести как 4321
+// function getReverseNumber (n: number):number {
+//   if (n<10) {
+//    return n
+//   } else {
+//    return + ( n%10 + '' + getReverseNumber(Math.floor(n/10)))
+//   }
+// }
+
+// console.log(getReverseNumber(1234))
+
+//4
+//Написать функцию, которая считает сумму цифр числа.
+//Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
+// function getSumDigits (n: number):number {
+//   if (n < 10) {
+//     return n
+//   } else {
+//     return n % 10 + getSumDigits(Math.floor(n/10))
+//   }
+// }
+// console.log(getSumDigits(1357))
+
+//5 
+//Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок.
+//Например: число 4 – (((()))).
+function getBracketsPairsByNum (n: number):string{
+  if (!n) {
+    return '()'
+  } else {
+    return '(' + getBracketsPairsByNum(n-1) + ')'
+  }
+}
+console.log(getBracketsPairsByNum(4))
+
+//1
+//Написать функцию, которая вычисляет факториал заданного числа.
+function factorial (n: number): number {
+  if (n===0) {
+    return 1 
+  } else {
+    return n * factorial(n-1)
+  }
+}
+console.log(factorial(3))
+
+//2
+//Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну функцию – для вывода в обратном порядке.
+
 
 
