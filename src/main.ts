@@ -373,28 +373,28 @@ console.log(message)
 //Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен на этой клавише (1–!,
 //2–@, 3–# и т. д).
 
-let number = prompt('Введите число')
-if (number == '0') {
-  alert(')')
-} else if (number == '1') {
-  alert('!')
-} else if (number == '2') {
-  alert('@')
-} else if (number == '3') {
-  alert('#')
-} else if (number == '4') {
-  alert('$')
-} else if (number == '5') {
-  alert('%')
-} else if (number == '6') {
-  alert('^')
-} else if (number == '7') {
-  alert('&') 
-} else if (number == '8') {
-  alert('*')
-} else if (number == '9') {
-  alert('(')
-}
+// let number = prompt('Введите число')
+// if (number == '0') {
+//   alert(')')
+// } else if (number == '1') {
+//   alert('!')
+// } else if (number == '2') {
+//   alert('@')
+// } else if (number == '3') {
+//   alert('#')
+// } else if (number == '4') {
+//   alert('$')
+// } else if (number == '5') {
+//   alert('%')
+// } else if (number == '6') {
+//   alert('^')
+// } else if (number == '7') {
+//   alert('&') 
+// } else if (number == '8') {
+//   alert('*')
+// } else if (number == '9') {
+//   alert('(')
+// }
 
 // задание 3 
 // Запросить у пользователя трехзначное и число и проверить, есть ли в нем одинаковые цифры.
@@ -402,4 +402,5 @@ if (number == '0') {
 // задание 4 
 //Запросить у пользователя год и проверить, високосный он или нет. Високосный год либо кратен 400, либо кратен 4 и
 //при этом не кратен 100
+
 
