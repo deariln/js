@@ -501,37 +501,108 @@ for (let x=0; x<2; x++) {
 //5 
 //Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок.
 //Например: число 4 – (((()))).
-function getBracketsPairsByNum (n: number):string{
-  if (!n) {
-    return '()'
-  } else {
-    return '(' + getBracketsPairsByNum(n-1) + ')'
-  }
-}
-console.log(getBracketsPairsByNum(4))
+// function getBracketsPairsByNum (n: number):string{
+//   if (!n) {
+//     return '()'
+//   } else {
+//     return '(' + getBracketsPairsByNum(n-1) + ')'
+//   }
+// }
+// console.log(getBracketsPairsByNum(4))
 
 //1
 //Написать функцию, которая вычисляет факториал заданного числа.
-function factorial (n: number): number {
-  if (n===0) {
-    return 1 
-  } else {
-    return n * factorial(n-1)
-  }
-}
-console.log(factorial(3))
+// function factorial (n: number): number {
+//   if (n===0) {
+//     return 1 
+//   } else {
+//     return n * factorial(n-1)
+//   }
+// }
+// console.log(factorial(3))
 
 
 // ДЗ 5 задание 1
 // Написать функцию возведения числа в степень.
-function degree (n:number, x:number):number {
-  if (n==0) {
-    return 1
-  } else {
-    return n ** x
-  }
+// function degree (n:number, x:number):number {
+//   if (n==0) {
+//     return 1
+//   } else {
+//     return n ** x
+//   }
+// }
+// console.log(degree(4,4))
+
+const object = {
+  b:2,
+  d:1,
+  C:1,
+  'a':12,
+  1:'sdfs',
+  obj: {
+    z:888
+  },
+  'two words': 'fsdf',
+} as Record<string, any>
+
+object.newProp = 15
+console.log(object)
+// Можем получить доступ к значению ключа через квадраьные скобки и занчение ключа строкой
+// ?так мы можем получить любое значение (даже если ключ число или состоит из нескольких слов)
+console.log(object['1'])
+console.log(object['obj'])
+console.log(object['obj'].z)
+
+
+// Можем получить доступ к значению ключа через точку и имя ключа 
+// ! выдаст ошибку, если ключ число или состоит из нескольких слов
+console.log(object.b)
+console.log(object.two)
+// Опциональная цепочка
+// ? Позволяет обращаться к вложенным ключам без ошибки, даже если значение не установлено
+console.log(object.obj1)
+console.log(object.obj1?.z)
+
+try {
+  object.obj1.z
+} catch(e:any) {
+  console.log(e.message)
 }
-console.log(degree(4,4))
+
+console.log(object['two words'])
+delete object['two words']
+delete object.a
+for (let key in object) {
+  console.log(key)
+  console.log(object[key])
+}
+
+
+{
+
+  let a=1
+  let b=a
+  console.log(a,b)
+  a++
+  console.log(a,b)
+  console.log(a==b)
+  
+  const obj1 = {a:1}
+  const obj2 = obj1
+  const obj3 = {...obj1}
+
+  console.log(obj1, obj2, obj3)
+  obj1.a++
+  console.log(obj1, obj2, obj3)
+  console.log(obj1 == obj2)
+  // @ts-ignore
+  console.log({} == {})
+  // @ts-ignore
+  console.log({a:1} == {a:1})
+
+
+}
+
 
 // 1.1.  Написать функцию возвращающюю массив целых чисел от 0 до 10
 
@@ -574,4 +645,26 @@ const employees = [
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
 ]
+
+//дз2.2
+//Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
+//ходимое количество и куплен или нет.
+
+type product = {
+  product: string,
+  count: number,
+  purchased: boolean,
+}
+
+
+const shoppingList = [
+ { product: 'apple', count: 3, purchased: true},
+ { product: 'milk', count: 1, purchased: false},
+ { product: 'flour', count: 2, purchased: false},
+ { product: 'egg', count: 5, purchased: false},
+ { product: 'jucie', count: 2, purchased: true}
+]
+
+//1 Вывод всего списка на экран таким образом, чтобы сначала
+//шли некупленные продукты, а потом – купленные.
 
