@@ -603,6 +603,31 @@ for (let key in object) {
 
 }
 
+//дз2.2
+//Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
+//ходимое количество и куплен или нет.
+
+type product = {
+  product: string,
+  count: number,
+  purchased: boolean,
+}
+
+
+const shoppingList = [
+ { product: 'apple', count: 3, purchased: true},
+ { product: 'milk', count: 1, purchased: false},
+ { product: 'flour', count: 2, purchased: false},
+ { product: 'egg', count: 5, purchased: false},
+ { product: 'jucie', count: 2, purchased: true}
+]
+
+//1 Вывод всего списка на экран таким образом, чтобы сначала
+//шли некупленные продукты, а потом – купленные.
+
+
+
+
 
 // 1.1.  Написать функцию возвращающюю массив целых чисел от 0 до 10
 
@@ -629,6 +654,7 @@ console.log(numbers (3))
 console.log(numbers (5,10))
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
+
 // 2.1. В файле html создать пустой div с произвольным id
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
 // 2.3. Вывесли в полученный div текст, "Привет, пользователь"
@@ -645,26 +671,4 @@ const employees = [
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
 ]
-
-//дз2.2
-//Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
-//ходимое количество и куплен или нет.
-
-type product = {
-  product: string,
-  count: number,
-  purchased: boolean,
-}
-
-
-const shoppingList = [
- { product: 'apple', count: 3, purchased: true},
- { product: 'milk', count: 1, purchased: false},
- { product: 'flour', count: 2, purchased: false},
- { product: 'egg', count: 5, purchased: false},
- { product: 'jucie', count: 2, purchased: true}
-]
-
-//1 Вывод всего списка на экран таким образом, чтобы сначала
-//шли некупленные продукты, а потом – купленные.
 
