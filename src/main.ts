@@ -614,7 +614,7 @@ type product = {
 }
 
 
-const shoppingList = [
+const buyList:product [] = [
  { product: 'apple', count: 3, purchased: true},
  { product: 'milk', count: 1, purchased: false},
  { product: 'flour', count: 2, purchased: false},
@@ -624,23 +624,25 @@ const shoppingList = [
 
 //1 Вывод всего списка на экран таким образом, чтобы сначала
 //шли некупленные продукты, а потом – купленные.
+const buyListOL = document.getElementById('buyList') as HTMLOListElement
 
-
-
-
+function renderBuyList (arr: product[]) {
+  let html = ''
+  
+}
 
 // 1.1.  Написать функцию возвращающюю массив целых чисел от 0 до 10
 
-const array = numCreate()
-function numCreate () {
-  let num = []
-  for (let i=1; i<=10;i++) {
-    num.push(i)
-  }
-  return num
-}
+// const array = numCreate()
+// function numCreate () {
+//   let num = []
+//   for (let i=1; i<=10;i++) {
+//     num.push(i)
+//   }
+//   return num
+// }
 
-console.log(array)
+// console.log(array)
 
 // 1.2.  Добавить в функцию параметры опциональные параметры начального и конечного значения массива
 //     (если конечный элемент массива не передат, то он больше нечального на 10) . Вызвать функцию несаколько раз
@@ -671,4 +673,11 @@ const employees = [
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
 ]
+
+
+
+//ПРАКТИКА строки 2.3
+//1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
+//строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
+//одинаковой длины.
 
