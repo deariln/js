@@ -608,18 +608,18 @@ for (let key in object) {
 //ходимое количество и куплен или нет.
 
 type product = {
-  product: string,
+  name: string,
   count: number,
   purchased: boolean,
 }
 
 
 const buyList:product [] = [
- { product: 'apple', count: 3, purchased: true},
- { product: 'milk', count: 1, purchased: false},
- { product: 'flour', count: 2, purchased: false},
- { product: 'egg', count: 5, purchased: false},
- { product: 'jucie', count: 2, purchased: true}
+ { name: 'яблоко', count: 3, purchased: true},
+ { name: 'молоко', count: 1, purchased: false},
+ { name: 'мука', count: 2, purchased: false},
+ { name: 'макароны', count: 5, purchased: false},
+ { name: 'кофе', count: 2, purchased: true}
 ]
 
 //1 Вывод всего списка на экран таким образом, чтобы сначала
@@ -628,21 +628,156 @@ const buyListOL = document.getElementById('buyList') as HTMLOListElement
 
 function renderBuyList (arr: product[]) {
   let html = ''
-  
+  for (let el of arr) {
+    if (!el.purchased) {
+      html += `<li style="color:red">${el.name} ${el.count} <button data-name="${el.name}">Отметить купленным</button></li>`
+    }
+  }
+  for (let el of arr) {
+    if (el.purchased) {
+      html += `<li style="color:green">${el.name} ${el.count}</li>`
+    }
+  }
+  buyListOL.innerHTML = html
 }
+
+renderBuyList(buyList)
+
+// 2 Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом, необ-
+//ходимо увеличивать количество в существующей покупке,
+//а не добавлять новую.
+
+const productNameInput = document.getElementById('productName') as HTMLInputElement
+const productCountInput = document.getElementById('productCount') as HTMLInputElement
+const addProductButton = document.getElementById('addProduct') as HTMLButtonElement
+
+function addToBuyList(arr:product[], name:string, count:number) {
+  let inList = false
+  for (let el of arr) {
+    if (el.name == name && !el.purchased) {
+      el.count+=count
+      inList = true
+    }
+  }
+  if (!inList) {
+    arr.push({name, count, purchased:false})
+  }
+  renderBuyList(arr)
+}
+addToBuyList(buyList, 'мука', 2)
+
+addProductButton.addEventListener('click', function() {
+  const count = parseFloat(productCountInput.value.replace(',', '.'))
+  addToBuyList(buyList, productNameInput.value, count)
+  productNameInput.value = ''
+  productCountInput.value = ''
+})
+
+//3 Покупка продукта. Функция принимает название продукта
+//и отмечает его как купленный.
+
+const setBuyedButton = document.getElementById('setBuyed') as HTMLButtonElement
+
+function setBuyed(arr: product[], name: string) {
+  for (let el of arr) {
+    if (el.name == name) {
+      el.purchased = true
+    }
+  }
+  renderBuyList(arr)
+}
+
+setBuyed(buyList, 'мука')
+
+setBuyedButton.addEventListener('click', function() {
+  setBuyed(buyList, productNameInput.value)
+  productNameInput.value = ''
+  productCountInput.value = ''
+})
+
+buyListOL.addEventListener('click', function(e) {
+  const target = e.target as HTMLElement
+  if (target.tagName == 'BUTTON' && target.dataset.name) {
+    setBuyed(buyList, target.dataset.name)
+  }
+})
+
+//Задание 2
+//Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за
+//единицу товара. Написать следующие функции.
+
+type check = {
+  name: string,
+  count: number,
+  price: number,
+}
+ const descriptionCheck: check[] = [
+  {name: 'стол', count: 1 , price: 5000},
+  {name: 'стакан', count: 2, price: 200 },
+  {name: 'сахар', count: 2 , price: 60 },
+  {name: 'конфеты', count: 3, price: 400 }, 
+  {name: 'яблоко', count: 5, price: 200 },
+ ]
+
+// 1 Распечатка чека на экран.
+
+const descriptionCheckOL = document.getElementById('descriptionCheck') as HTMLOListElement
+
+function printCheck(arr: check[]) {
+  let html = ''
+  for (let el of arr) {
+    html += `<li>${el.name} ${el.count} ${el.price}</li>`
+  }
+  descriptionCheckOL.innerHTML = html
+}
+
+printCheck(descriptionCheck)
+
+//2.Подсчет общей суммы покупки.
+
+function sumCheck(arr:check[]) {
+  let sum = 0
+  for (let el of arr) {
+    console.log(el)
+    sum += el.price * el.count
+  }
+  return sum
+}
+console.log(sumCheck(descriptionCheck))
+
+//3.Получение самой дорогой покупки в чеке.
+
+// function maxPriceCheck(arr: check[]) {
+//   let max = 0
+//   for (i = 0; i < arr.length; i++) {
+//     if (arr[i].count * arr[i].price > max) {
+//       max = arr[i].count * arr[i].price
+//     }
+//   }
+//   return max
+// }
+// console.log(maxPriceCheck(descriptionCheck))
+
+//4.Подсчет средней стоимости одного товара в чеке.
+
+function averageCheck(arr: check[]) {
+  return sumCheck(arr) / arr.length
+}
+console.log(averageCheck(descriptionCheck))
+
 
 // 1.1.  Написать функцию возвращающюю массив целых чисел от 0 до 10
 
-// const array = numCreate()
-// function numCreate () {
-//   let num = []
-//   for (let i=1; i<=10;i++) {
-//     num.push(i)
-//   }
-//   return num
-// }
+function getNum() {
+  const arr: number[] = []
+  for (let i = 0; i < 10; i++) {
+    arr.push(i)
+  }
+  return arr
+}
 
-// console.log(array)
+console.log(getNum())
+
 
 // 1.2.  Добавить в функцию параметры опциональные параметры начального и конечного значения массива
 //     (если конечный элемент массива не передат, то он больше нечального на 10) . Вызвать функцию несаколько раз
@@ -656,13 +791,22 @@ console.log(numbers (3))
 console.log(numbers (5,10))
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
-
 // 2.1. В файле html создать пустой div с произвольным id
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
+const myObj = document.getElementById('obj') as HTMLDivElement
+console.log(myObj)
 // 2.3. Вывесли в полученный div текст, "Привет, пользователь"
+myObj.innerHTML = 'Привет, пользователь!'
 // 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
 
 // Есть массив объектов
+
+type employees = {
+  name: string,
+  department: string,
+  salary: number,
+}
+
 const employees = [
   { name: 'Федотова Арина Глебовна', department: 'ads', salary: 2100 },
   { name: 'Голикова Мария Филипповна', department: 'prog', salary: 3500 },
@@ -679,5 +823,4 @@ const employees = [
 //ПРАКТИКА строки 2.3
 //1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
 //строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
-//одинаковой длины.
-
+//одинаковой длин�

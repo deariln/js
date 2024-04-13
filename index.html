@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
+
   <body>
-      new project
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+     <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script> 
+  
+    <div id="renderText"></div>
+    <div style="display: flex;">
+      <ol id="buyList"></ol>
+      <div style="margin: 20px;">
+        <input type="text" id="productName"  style="border-radius: 5px; padding: 5px;
+        margin-bottom: 10px;" placeholder="Название продукта">
+        <br>
+        <input type="text" id="productCount"  style="border-radius: 5px; padding: 5px; margin-bottom: 5px
+        ;"  placeholder="Количество">
+        <br>
+        <button id="addProduct" style="margin-bottom: 10px;">Добавить</button>
+        <br>
+        <button id="setBuyed" style="border-radius: 5px; padding: 10px;">Отметить купленным</button>
+      </div>
+    </div>
+
+    <div style="display: flex;">
+      <div id="canvas">
+        <div id="rect" style="top: 0; left:0">
+
+        </div>
+
+
+      </div>
+      <div style="display: flex; background-color: aliceblue; color: black;; width: 200px; 
+      height: 200px; " >
+        <ol id="descriptionCheck"></ol>
+      </div>
+
+
+    </div>
+    <div id="obj">
+      <p>Привет, пользователь!</p>
+    </div>
   </body>
 </html>
