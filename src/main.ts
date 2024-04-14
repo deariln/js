@@ -823,4 +823,28 @@ const employees = [
 //ПРАКТИКА строки 2.3
 //1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
 //строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
-//одинаковой длин�
+//одинаковой длин
+
+// function acceptStr (str1: string, str2: string) {
+//   for(i=0; i < str1.length && str2.length; i++) {
+//     if (str1.length>str2.length) {
+//       return 1
+//     } else if (str2.length > str1.length) {
+//       return -1
+//     } else (str1.length == str2.length) 
+//       return 0
+//   } 
+//   console.log(acceptStr('да','нет'))
+// }
+
+//2 Написать функцию, которая переводит в верхний регистр
+//первый символ переданной строки.
+
+function upperString(str: string) {
+  for (let i = 0; i < str.length; i++)
+    return str
+}
+console.log(upperString('привет'[0].toUpperCase()))
+
+//3 Написать функцию, которая считает количество гласных
+//букв в переданной строке.
