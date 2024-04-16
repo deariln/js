@@ -825,17 +825,17 @@ const employees = [
 //строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
 //одинаковой длин
 
-// function acceptStr (str1: string, str2: string) {
-//   for(i=0; i < str1.length && str2.length; i++) {
-//     if (str1.length>str2.length) {
-//       return 1
-//     } else if (str2.length > str1.length) {
-//       return -1
-//     } else (str1.length == str2.length) 
-//       return 0
-//   } 
-//   console.log(acceptStr('да','нет'))
-// }
+function acceptStr (str1: string, str2: string) {
+  for(let i=0; i < str1.length && str2.length; i++) {
+    if (str1.length>str2.length) {
+      return 1
+    } else if (str2.length > str1.length) {
+      return -1
+    } else (str1.length == str2.length) 
+      return 0
+  } 
+}
+console.log(acceptStr('да','нет'))
 
 //2 Написать функцию, которая переводит в верхний регистр
 //первый символ переданной строки.
@@ -848,3 +848,28 @@ console.log(upperString('привет'[0].toUpperCase()))
 
 //3 Написать функцию, которая считает количество гласных
 //букв в переданной строке.
+
+function findVowels (str:string) {
+  let vowels = 'aioyueAYUIOE'
+  let count= 0
+  for ( let i =0; i < str.length; i++ ) {
+    if (vowels.includes(str[i])) count++
+  }
+  return count
+}
+
+console.log(findVowels('findVowels'))
+
+  //4 Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит
+//спам. Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх.
+//Функция должна быть нечувствительна к регистру.
+
+ function chekSpam (str:string) {
+  let lowerStr = str.toLocaleLowerCase();
+  if (lowerStr.includes('aaa') || lowerStr.includes('bbb') || lowerStr.includes('ccc')) {
+    return true
+  } else 
+    return false
+ }
+ console.log(chekSpam('eee'))
+ console.log(chekSpam('aaa'))
