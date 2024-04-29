@@ -873,3 +873,27 @@ console.log(findVowels('findVowels'))
  }
  console.log(chekSpam('eee'))
  console.log(chekSpam('aaa'))
+
+ //5 Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки
+//больше, чем максимальная, то необходимо отбросить лишние символы, добавив вместо них троеточие.
+//Например: truncate(“Hello, world!”, 8) должна вернуть “Hello...”.
+
+function reductionStr(str: string, maxlength: number) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength - 1) + '…'
+  }
+}
+console.log(reductionStr('Hello world', 5))
+
+
+//6 Написать функцию, которая проверяет, является ли пере-
+//данная строка палиндромом.
+
+function palindromeStr(str: string) {
+  return str.split('').reverse().join('') == str;
+}
+console.log(palindromeStr('алла'))
+
+
+//7 Написать функцию, которая считает количество слов в
+//предложении.
