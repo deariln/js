@@ -895,5 +895,48 @@ function palindromeStr(str: string) {
 console.log(palindromeStr('алла'))
 
 
-//7 Написать функцию, которая считает количество слов в
-//предложении.
+ //1.Создайте объект Date для даты: 20 февраля 2012 года, 3 часа 12 минут. Временная зона – местная.
+// let date = new Date (2012, 1, 20, 3, 12 )
+// console.log(date.toLocaleString())
+
+
+//2. Напишите функцию getWeekDay(date), показывающую день недели в коротком формате: «ПН», «ВТ», «СР», «ЧТ», «ПТ», «СБ», «ВС».
+// function getWeekDay(date:string) {
+//   let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'] 
+//   return days [date.getDay()]
+// }
+// let date = new Date (2022, 3, 28)
+// console.log(getWeekDay(date))
+
+
+ //3. Напишите функцию getLocalDay(date), которая возвращает «европейский» день недели для даты date.
+// function getLocalDate(date:Date) {
+//   let days = ['0','1','2','3','4','5','6','7']
+//   return days [date.getDay()]
+// }
+// let date = new Date (2012, 0,3)
+// console.log(getLocalDate(date))
+
+
+//4.Создайте функцию getDateAgo(date, days), возвращающую число, которое было days дней назад от даты date.
+
+// function getDateAgo(date:number, days:number) {
+//   let dateCopy = new Date(date)
+//   dateCopy.setDate(date.getDate() - days)
+//   return dateCopy.getDate()
+// }
+// let date = new Date(2015, 0, 2);
+// console.log(getDateAgo(date, 1))
+// console.log(getDateAgo(date,2))
+
+//5. Напишите функцию getLastDayOfMonth(year, month), возвращающую последнее число месяца. Иногда это 30, 31 или даже февральские 28/29.
+
+// function getLastDayOfMonth(year:number, month:number) {
+//   let date =  new Date (year, month +1,0) 
+//   return date.getDate()
+// }
+// console.log( getLastDayOfMonth(2012, 0))
+
+
+//6.Напишите функцию getSecondsToday(), возвращающую количество секунд с начала сегодняшнего дня.
+ 
