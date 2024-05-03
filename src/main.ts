@@ -818,7 +818,223 @@ const employees = [
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
 ]
 
+function showEmployees(arr: employees[], i = -1) {
+  if (i > -1 && i < arr.length) {
+    myObj.innerHTML = 'Привет, ' + arr[i].name + '!'
+  } else {
+    myObj.innerHTML = 'Привет, пользователь'
+  }
+}
+showEmployees(employees, 4)
 
+
+// Все функции вызывать несколько раз с разными параметрами
+// 2.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+
+function uniqueDepartment(arr: employees[]) {
+  const unique: string[] = []
+  for (let el of arr) {
+    if (!unique.includes(el.department)) {
+      unique.push(el.department)
+    }
+  }
+  return unique
+}
+console.log(uniqueDepartment(employees))
+
+// 2.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
+// Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+
+function sortEmployees(arr: employees[], key: 'name' | 'department' | 'salary') {
+  return arr.sort((a, b) => {
+    if (a[key] > b[key]) return 1
+    if (a[key] < b[key]) return -1
+    return 0
+  })
+}
+console.log(sortEmployees(employees, 'name'))
+console.log(sortEmployees(employees, 'department'))
+console.log(sortEmployees(employees, 'salary'))
+
+
+// 2.3. Написать функцию, аналогичную описанной в задании 2.2., но сортирующую в обратном порядке
+function sortReversEmployees(arr: employees[], key: 'name' | 'department' | 'salary') {
+  return arr.sort((a, b) => {
+    if (a[key] < b[key]) return 1
+    if (a[key] > b[key]) return -1
+    return 0
+  })
+}
+console.log(sortReversEmployees(employees, 'name'))
+console.log(sortReversEmployees(employees, 'department'))
+console.log(sortReversEmployees(employees, 'salary'))
+
+
+// 2.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+
+function listEmployees(arr: employees[], name: string) {
+  for (let el of arr) {
+    if (el.name == name) {
+      return el
+    }
+  }
+  return undefined
+}
+console.log(listEmployees(employees, 'Крылов Богдан Максимович'))
+
+// 2.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+function newArr(arr: employees[], department: string) {
+  return arr.filter((el) => el.department == department)
+}
+newArr(employees, 'ads')
+console.log(newArr(employees, 'ads'))
+
+// 2.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
+
+function paymentEmployees(arr: employees[]) {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].salary
+  }
+  return sum
+}
+console.log(paymentEmployees(employees))
+console.log(paymentEmployees(newArr(employees, 'ads')))
+console.log(paymentEmployees(newArr(employees, 'prog')))
+console.log(paymentEmployees(newArr(employees, 'disign')))
+
+
+// Все функции вызывать несколько раз с разными параметрами
+// 3.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+// deps.includes
+// [ads, prog, disign]
+
+function uniqueDep(arr: employees[]) {
+  const unique: string[] = []
+  for (let el of arr) {
+    if (!unique.includes(el.department)) {
+      unique.push(el.department)
+    }
+  }
+  return unique
+}
+console.log(uniqueDep(employees))//Задание дублируется с 2.1
+
+
+// 3.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
+// Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+// function sortEmpl(arr, key: 'name' | 'department' |'salary') {
+// }
+
+function sortEmpl(arr: employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
+  if (key == 'name' || key == 'department') {
+    arr.sort((a, b) => a[key].localeCompare(b[key]))
+  } else {
+    arr.sort((a, b) => a[key] - b[key])
+  }
+}
+// sortEmpl(employees, 'name')
+sortEmpl(employees, 'department')
+// sortEmpl(employees, 'salary')
+
+// 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
+
+function sortBackEmpl(arr: employees[], key: 'name' | 'department' | 'salary') {
+  sortEmpl(arr, key)
+  arr.reverse()
+}
+sortBackEmpl(employees, 'name')
+// sortBackEmpl(employees, 'department')
+// sortBackEmpl(employees, 'salary')
+
+// 3.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+
+function listNewEmployees(arr: employees[], name: string) {
+  for (let el of arr) {
+    if (el.name == name) {
+      return el
+    }
+  }
+  return undefined
+}
+console.log(listNewEmployees(employees, 'Крылов Богдан Максимович'))
+
+// 3.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+
+function newArrEmp(arr: employees[], department: string) {
+  return arr.filter((el) => el.department == department)
+}
+newArr(employees, 'ads')
+console.log(newArrEmp(employees, 'disign'))
+
+// 3.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
+
+function paymentNewEmployees(arr: employees[]) {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].salary
+  }
+  return sum
+}
+console.log(paymentNewEmployees(employees))
+console.log(paymentNewEmployees(newArr(employees, 'ads')))
+console.log(paymentNewEmployees(newArr(employees, 'prog')))
+console.log(paymentNewEmployees(newArr(employees, 'disign')))
+
+// 3.7. В HTML создать div для кнопок, задать ему id и получить объект div'a в js, аналогично заданию 2.2.
+
+const myButton = document.getElementById('myBut') as HTMLDivElement
+console.log(myButton)
+
+// 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
+const sumSalary = document.getElementById('sumSal') as HTMLDivElement
+function conclusionList(arr: employees[]) {
+  let html = '<ul>'
+
+  for (let el of arr) {
+    html += `<li>${el.name} ${el.department} ${el.salary}</li>`
+  }
+  sumSalary.innerHTML = `${html}</ul><div>Sum ${paymentNewEmployees(arr)}</div>`
+}
+console.log(conclusionList(employees))
+
+// 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
+// использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
+const buttonAds = document.getElementById('butAds') as HTMLDivElement
+
+function renderButtons(arr: string[]) {
+  let html = ''
+  for (let dep of arr) {
+    html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+    margin-left: 20px; margin-bottom: 5px;" data-dep="${dep}">${dep.toUpperCase()}</button>`
+  }
+  html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+  margin-left: 20px; margin-bottom: 5px;" data-dep="all">ALL</button>`
+  buttonAds.innerHTML = html
+}
+
+renderButtons(uniqueDep(employees))
+
+// 3.10. Используя div, полученный в задании 3.7
+buttonAds.addEventListener('click', function (e) {
+  const target = e.target as HTMLElement
+  if (target.tagName == 'BUTTON' && target.dataset.dep) {
+    if (target.dataset.dep == 'all') {
+      conclusionList(employees)
+    } else {
+      conclusionList(newArrEmp(employees, target.dataset.dep))
+    }
+    // в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
+    // в div (3.8) выводить сумму зарплат
+  }
+})
+function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
+  throw new Error('Function not implemented.')
+}
+console.log(renderText)
+
+
+  
 
 //ПРАКТИКА строки 2.3
 //1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
