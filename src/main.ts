@@ -1005,10 +1005,10 @@ const buttonAds = document.getElementById('butAds') as HTMLDivElement
 function renderButtons(arr: string[]) {
   let html = ''
   for (let dep of arr) {
-    html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+    html += `<button style="background-color: black; width: 80px; color: white; border-color: black; border-width: 5px;
     margin-left: 20px; margin-bottom: 5px;" data-dep="${dep}">${dep.toUpperCase()}</button>`
   }
-  html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+  html += `<button style="background-color: black; width: 80px; color: white; border-color: black; border-width: 5px;
   margin-left: 20px; margin-bottom: 5px;" data-dep="all">ALL</button>`
   buttonAds.innerHTML = html
 }
@@ -1152,7 +1152,3 @@ console.log(palindromeStr('алла'))
 //   return date.getDate()
 // }
 // console.log( getLastDayOfMonth(2012, 0))
-
-
-//6.Напишите функцию getSecondsToday(), возвращающую количество секунд с начала сегодняшнего дня.
- 
