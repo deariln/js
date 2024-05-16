@@ -1152,3 +1152,5 @@ console.log(palindromeStr('алла'))
 //   return date.getDate()
 // }
 // console.log( getLastDayOfMonth(2012, 0))
+
+
