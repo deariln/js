@@ -1154,3 +1154,211 @@ console.log(palindromeStr('алла'))
 // console.log( getLastDayOfMonth(2012, 0))
 
 
+//классы дз
+// Реализовать класс, описывающий окружность.
+class Circle {
+  #radius
+  constructor(radius: number) {
+      this.#radius = radius
+  }
+  get radius() {
+      return this.#radius
+  }
+  set radius(n: number) {
+      if (n <= 0) {
+          console.log('error')
+      }
+      this.#radius = n
+  }
+  getDiametr() {
+      return this.#radius * 2
+  }
+  squareCircle() {
+      return Math.PI * this.#radius ** 2
+  }
+  lengthCircle() {
+      return 2 * Math.PI * this.#radius
+  }
+}
+const abc = new Circle(10)
+console.log(abc.radius)
+abc.radius = 20
+console.log(abc.radius)
+console.log(abc.getDiametr())
+console.log(abc.squareCircle())
+console.log(abc.lengthCircle())
+
+
+//2
+//Реализовать класс, описывающий html элемент.
+
+class HtmlElement {
+  tag: string
+  isSingle: boolean
+  text: string
+  atributes = [] as any[]
+  styles = [] as any[]
+  elements = [] as HtmlElement[]
+  constructor(tag: string, text = '') {
+      const singleArr = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+      this.tag = tag
+      this.text = text
+      this.isSingle = singleArr.includes(tag) ? true : false
+  }
+  setAtribute(name: string, value: string) {
+      this.atributes.push({ name, value })
+  }
+  setStyle(name: string, value: string) {
+      this.styles.push({ name, value })
+  }
+  prepend(el: HtmlElement) {
+      this.elements.unshift(el)
+  }
+  append(el: HtmlElement) {
+      this.elements.push(el)
+  }
+  getHtml(): string {
+      const styles = this.styles.map(el => el.name + ':' + el.value).join(';')
+      const attrCopy = [...this.atributes]
+      if (this.styles.length) {
+          attrCopy.push({ name: 'style', value: styles })
+      }
+      if (this.isSingle) {
+          if (this.text) {
+              attrCopy.push({ name: 'area-label', value: this.text })
+          }
+          const atributes = attrCopy.map(el => el.name + '="' + el.value + '"').join(' ')
+          return `<${this.tag} ${atributes}>`
+      } else {
+          const atributes = attrCopy.map(el => el.name + '="' + el.value + '"').join(' ')
+          return `<${this.tag} ${atributes}>${this.text}${this.elements.map(el => el.getHtml()).join('\n')}</${this.tag}>`
+      }
+  }
+}
+const wrapper = new HtmlElement('div')
+wrapper.setAtribute('id', 'wrapper')
+wrapper.setStyle('display', 'flex')
+const div = new HtmlElement('div')
+div.setStyle('width', '300px')
+div.setStyle('margin', '10px')
+const h3 = new HtmlElement('h3', 'Lorem')
+const img = new HtmlElement('img')
+img.setStyle('width', '100%')
+img.setAtribute('src', '1.gif')
+img.setAtribute('alt', 'Lorem')
+const p = new HtmlElement('p', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda inventore voluptas natus obcaecati mollitia ad eos adipisci delectus quia odit, earum culpa sunt, molestiae doloribus in explicabo! Illo, harum!')
+p.setStyle('text-align', 'justify')
+const ala = new HtmlElement('a', ' More...')
+ala.setAtribute('href', 'https://www.lipsum.com/')
+ala.setAtribute('target', '_blank')
+p.append(ala)
+div.append(img)
+div.append(p)
+div.prepend(h3)
+wrapper.append(div)
+wrapper.append(div)
+const heDiv = document.getElementById('he') as HTMLDivElement
+heDiv.innerHTML = wrapper.getHtml()
+
+
+//3
+// Реализовать класс, который описывает css класс.
+// Класс CssClass должен содержать внутри себя:
+// ■ название css класса;
+// ■ массив стилей;
+// ■ метод для установки стиля;
+// ■ метод для удаления стиля;
+// ■ метод getCss(), который возвращает css код в виде строки.
+
+class CssClass {
+  styles = [] as Record<string, string>[]
+  name: string
+  constructor(name: string) {
+      this.name = name
+  }
+  setStyle(name: string, value: string) {
+      this.styles.push({ name, value })
+  }
+  removeProperty(name: string) {
+      const index = this.styles.findIndex(el => el.name == name)
+      if (index !== 1) this.styles.splice(index, 1)
+  }
+
+  getCss() {
+      const styles = this.styles.map((el) => el.name + ':' + el.value).join(';')
+      return `.${this.name}{${styles}}`
+  }
+}
+
+const descCss = document.getElementById('st') as HTMLDivElement
+const bigRed = new CssClass('bigRed')
+bigRed.setStyle("color", "red")
+bigRed.setStyle("color", "green")
+bigRed.setStyle("font-size", "30px")
+bigRed.setStyle("font-family", "Arial")
+console.log(bigRed.getCss())
+bigRed.removeProperty("font-family")
+bigRed.removeProperty("color")
+console.log(bigRed.getCss())
+
+descCss.innerHTML += bigRed.getCss()
+
+// 4 Реализовать класс, описывающий блок html документ.
+// Класс HtmlBlock должен содержать внутри себя:
+// ■ коллекцию стилей, описанных с помощью класса CssClass;
+// ■ корневой элемент,описанный с помощью класса HtmlElement;
+// ■ метод getCode(), который возвращает строку с html ко-
+// дом (сначала теги style с описанием всех классов, а потом
+// все html содержимое из корневого тега и его вложенных
+// элементов).
+class HtmlBlock {
+  styles = [] as CssClass[]
+  element: HtmlElement
+  constructor(styles: CssClass[], element: HtmlElement) {
+      this.styles = styles
+      this.element = element
+  }
+  getCode() {
+      return {
+          styles: this.styles.map(el => el.getCss()).join('\n'),
+          html: this.element.getHtml()
+      }
+  }
+}
+const docCss = document.getElementById('st') as HTMLDivElement
+const bigGreen = new CssClass('bigGreen')
+const docDiv = document.getElementById('he') as HTMLDivElement
+bigGreen.setStyle("color", "pink")
+bigGreen.setStyle("color", "white")
+bigGreen.setStyle("font-size", "40px")
+bigGreen.setStyle("font-family", "Times New Roman")
+console.log(bigGreen.getCss())
+bigGreen.removeProperty("font-family")
+bigGreen.removeProperty("color")
+
+const wrapClass = new CssClass('wrap')
+wrapClass.setStyle("display", "flex")
+
+const blockClass = new CssClass('block')
+blockClass.setStyle("width", "300px")
+blockClass.setStyle("margin", "10px")
+
+const imgClass = new CssClass('img')
+imgClass.setStyle("width", "100%")
+imgClass.setStyle("color", "blueviolet")
+
+const textClass = new CssClass('text')
+textClass.setStyle("text-align", "justify")
+
+const block = new HtmlBlock([wrapClass, blockClass, imgClass, textClass], wrapper)
+
+docCss.innerHTML += bigGreen.getCss()
+docDiv.innerHTML = wrapper.getHtml()
+const blockCode = block.getCode()
+docCss.innerHTML += blockCode.styles
+docDiv.innerHTML = blockCode.html
+
+// const block = new HtmlBlock([bigGreen,], wrapper)
+docCss.innerHTML += bigGreen.getCss()
+docDiv.innerHTML = wrapper.getHtml()
+
