@@ -1028,10 +1028,10 @@ buttonAds.addEventListener('click', function (e) {
     // в div (3.8) выводить сумму зарплат
   }
 })
-function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
-  throw new Error('Function not implemented.')
-}
-console.log(renderText)
+// function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
+//   throw new Error('Function not implemented.')
+// }
+// console.log(renderText)
 
 
   
@@ -1154,40 +1154,6 @@ console.log(palindromeStr('алла'))
 // console.log( getLastDayOfMonth(2012, 0))
 
 
-//классы дз
-// Реализовать класс, описывающий окружность.
-class Circle {
-  #radius
-  constructor(radius: number) {
-      this.#radius = radius
-  }
-  get radius() {
-      return this.#radius
-  }
-  set radius(n: number) {
-      if (n <= 0) {
-          console.log('error')
-      }
-      this.#radius = n
-  }
-  getDiametr() {
-      return this.#radius * 2
-  }
-  squareCircle() {
-      return Math.PI * this.#radius ** 2
-  }
-  lengthCircle() {
-      return 2 * Math.PI * this.#radius
-  }
-}
-const abc = new Circle(10)
-console.log(abc.radius)
-abc.radius = 20
-console.log(abc.radius)
-console.log(abc.getDiametr())
-console.log(abc.squareCircle())
-console.log(abc.lengthCircle())
-
 
 //2
 //Реализовать класс, описывающий html элемент.
@@ -1261,104 +1227,5 @@ const heDiv = document.getElementById('he') as HTMLDivElement
 heDiv.innerHTML = wrapper.getHtml()
 
 
-//3
-// Реализовать класс, который описывает css класс.
-// Класс CssClass должен содержать внутри себя:
-// ■ название css класса;
-// ■ массив стилей;
-// ■ метод для установки стиля;
-// ■ метод для удаления стиля;
-// ■ метод getCss(), который возвращает css код в виде строки.
 
-class CssClass {
-  styles = [] as Record<string, string>[]
-  name: string
-  constructor(name: string) {
-      this.name = name
-  }
-  setStyle(name: string, value: string) {
-      this.styles.push({ name, value })
-  }
-  removeProperty(name: string) {
-      const index = this.styles.findIndex(el => el.name == name)
-      if (index !== 1) this.styles.splice(index, 1)
-  }
-
-  getCss() {
-      const styles = this.styles.map((el) => el.name + ':' + el.value).join(';')
-      return `.${this.name}{${styles}}`
-  }
-}
-
-const descCss = document.getElementById('st') as HTMLDivElement
-const bigRed = new CssClass('bigRed')
-bigRed.setStyle("color", "red")
-bigRed.setStyle("color", "green")
-bigRed.setStyle("font-size", "30px")
-bigRed.setStyle("font-family", "Arial")
-console.log(bigRed.getCss())
-bigRed.removeProperty("font-family")
-bigRed.removeProperty("color")
-console.log(bigRed.getCss())
-
-descCss.innerHTML += bigRed.getCss()
-
-// 4 Реализовать класс, описывающий блок html документ.
-// Класс HtmlBlock должен содержать внутри себя:
-// ■ коллекцию стилей, описанных с помощью класса CssClass;
-// ■ корневой элемент,описанный с помощью класса HtmlElement;
-// ■ метод getCode(), который возвращает строку с html ко-
-// дом (сначала теги style с описанием всех классов, а потом
-// все html содержимое из корневого тега и его вложенных
-// элементов).
-class HtmlBlock {
-  styles = [] as CssClass[]
-  element: HtmlElement
-  constructor(styles: CssClass[], element: HtmlElement) {
-      this.styles = styles
-      this.element = element
-  }
-  getCode() {
-      return {
-          styles: this.styles.map(el => el.getCss()).join('\n'),
-          html: this.element.getHtml()
-      }
-  }
-}
-const docCss = document.getElementById('st') as HTMLDivElement
-const bigGreen = new CssClass('bigGreen')
-const docDiv = document.getElementById('he') as HTMLDivElement
-bigGreen.setStyle("color", "pink")
-bigGreen.setStyle("color", "white")
-bigGreen.setStyle("font-size", "40px")
-bigGreen.setStyle("font-family", "Times New Roman")
-console.log(bigGreen.getCss())
-bigGreen.removeProperty("font-family")
-bigGreen.removeProperty("color")
-
-const wrapClass = new CssClass('wrap')
-wrapClass.setStyle("display", "flex")
-
-const blockClass = new CssClass('block')
-blockClass.setStyle("width", "300px")
-blockClass.setStyle("margin", "10px")
-
-const imgClass = new CssClass('img')
-imgClass.setStyle("width", "100%")
-imgClass.setStyle("color", "blueviolet")
-
-const textClass = new CssClass('text')
-textClass.setStyle("text-align", "justify")
-
-const block = new HtmlBlock([wrapClass, blockClass, imgClass, textClass], wrapper)
-
-docCss.innerHTML += bigGreen.getCss()
-docDiv.innerHTML = wrapper.getHtml()
-const blockCode = block.getCode()
-docCss.innerHTML += blockCode.styles
-docDiv.innerHTML = blockCode.html
-
-// const block = new HtmlBlock([bigGreen,], wrapper)
-docCss.innerHTML += bigGreen.getCss()
-docDiv.innerHTML = wrapper.getHtml()
 
