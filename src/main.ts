@@ -1225,6 +1225,7 @@ wrapper.append(div)
 const heDiv = document.getElementById('he') as HTMLDivElement
 heDiv.innerHTML = wrapper.getHtml()
 
+//Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
 
 
 
