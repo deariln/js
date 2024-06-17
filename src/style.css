@@ -30,3 +30,38 @@
    cursor: pointer;
    color: antiquewhite;
 }
+
+#pane {
+   background: #edf5e1;
+   padding: 10px 20px 10px;
+   border-top: solid 2px #c4df9b;
+   color: black;
+}
+
+#remove-button {
+   font-size: 110%;
+   color: darkred;
+   width: 24px;
+   height: 24px;
+   right: 10px;
+   border: none;
+   background: transparent;
+   cursor: pointer;
+   float: right;
+ }
+
+ #h3 {
+   margin: 0;
+   padding-bottom: .3em;
+   font-size: 1.1em;
+ }
+
+ #div1 {
+   margin: 10px auto;
+   width: 470px;
+ }
+
+ #p {
+   margin: 0;
+   padding: 0 0 .5em;
+ }
