@@ -1235,9 +1235,9 @@ heDiv.innerHTML = wrapper.getHtml()
 }
 
 //Создайте кнопку, которая будет скрывать себя по нажатию.
-const but = document.querySelector('#but') as HTMLButtonElement
-but.addEventListener('click', () => {
-  but.hidden = true
+ const but = document.querySelector('#but') as HTMLButtonElement
+ but.addEventListener('click', () => {
+ but.hidden = true
 }
 )
 
