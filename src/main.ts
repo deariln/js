@@ -1226,6 +1226,22 @@ const heDiv = document.getElementById('he') as HTMLDivElement
 heDiv.innerHTML = wrapper.getHtml()
 
 //Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
+{
+  const button = document.querySelector('#button') as HTMLButtonElement
+  const hiddenText = document.querySelector('#text') as HTMLDivElement
+  button.addEventListener('click', () => {
+    hiddenText.hidden = true
+  })
+}
+
+//Создайте кнопку, которая будет скрывать себя по нажатию.
+const but = document.querySelector('#but') as HTMLButtonElement
+but.addEventListener('click', () => {
+  but.hidden = true
+}
+)
+
+//Есть список сообщений.
 
 
 

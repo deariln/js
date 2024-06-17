@@ -20,3 +20,13 @@
    text-decoration: underline;
 }
 
+
+#button {
+   background-color: aliceblue;
+   color: black;
+}
+
+#but {
+   cursor: pointer;
+   color: antiquewhite;
+}
