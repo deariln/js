@@ -1226,13 +1226,14 @@ const heDiv = document.getElementById('he') as HTMLDivElement
 heDiv.innerHTML = wrapper.getHtml()
 
 //Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
-{
+
   const button = document.querySelector('#button') as HTMLButtonElement
   const hiddenText = document.querySelector('#text') as HTMLDivElement
   button.addEventListener('click', () => {
     hiddenText.hidden = true
-  })
-}
+  }
+  )
+
 
 //Создайте кнопку, которая будет скрывать себя по нажатию.
  const but = document.querySelector('#but') as HTMLButtonElement
@@ -1242,6 +1243,20 @@ heDiv.innerHTML = wrapper.getHtml()
 )
 
 //Есть список сообщений.
+const panes = document.querySelectorAll('#pane') 
+for(let pane of panes) {
+  pane.insertAdjacentHTML("afterbegin", '<button class="remove-button">[x]</button>')
+  pane.addEventListener('click', () => {
+    pane.remove()
+  }
+  )
+}
+
+//Создать меню, которое по нажатию открывается либо закрывается:
+const menuElem = document.getElementById('#menu') 
+const title = document.getElementById('#title') 
+ 
+
 
 
 

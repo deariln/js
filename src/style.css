@@ -38,18 +38,6 @@
    color: black;
 }
 
-#remove-button {
-   font-size: 110%;
-   color: darkred;
-   width: 24px;
-   height: 24px;
-   right: 10px;
-   border: none;
-   background: transparent;
-   cursor: pointer;
-   float: right;
- }
-
  #h3 {
    margin: 0;
    padding-bottom: .3em;
@@ -64,4 +52,34 @@
  #p {
    margin: 0;
    padding: 0 0 .5em;
+ }
+
+ .remove-button {
+   color: darkred;
+   border: #edf5e1;
+   background: transparent;
+   cursor: pointer;
+   float: right;
+ }
+
+
+ .menu ul {
+   margin: 0;
+   list-style: none;
+   padding-left: 20px;
+   display: none;
+ }
+ 
+ .menu .title::before {
+   content: '▶ ';
+   font-size: 80%;
+   color: rgb(0, 51, 128);
+ }
+
+ .menu.open .title::before {
+   content: '▼ ';
+ }
+ 
+ .menu.open ul {
+   display: block;
  }
