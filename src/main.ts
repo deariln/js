@@ -1253,8 +1253,8 @@ for(let pane of panes) {
 }
 
 //Создать меню, которое по нажатию открывается либо закрывается:
-const menuElem = document.getElementById('#menu') 
-const title = document.getElementById('#title') 
+// const menuElem = document.getElementById('#menu') 
+// const title = document.getElementById('#title') 
  
 
 
