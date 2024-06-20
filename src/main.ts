@@ -1253,9 +1253,15 @@ for(let pane of panes) {
 }
 
 //Создать меню, которое по нажатию открывается либо закрывается:
-// const menuElem = document.getElementById('#menu') 
-// const title = document.getElementById('#title') 
+const menu = document.querySelector('#menu') as HTMLButtonElement
+const titleElem = menu.querySelector('.title') as HTMLSpanElement
+ titleElem.addEventListener('click', () => {
+    menu.classList.toggle('open')
+ }) 
  
+//Создайте «Карусель» –- ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+
+
 
 
             
