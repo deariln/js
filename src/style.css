@@ -151,3 +151,9 @@
 .gallery li {
   display: inline-block;
 }
+
+#button {
+  background-color: red;
+  color: white;
+  font-size: larger;
+}
