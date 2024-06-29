@@ -34,7 +34,7 @@
 #pane {
    background: #edf5e1;
    padding: 10px 20px 10px;
-   border-top: solid 2px #c4df9b;
+   border-top: solid 2px #811c54;
    color: black;
 }
 
@@ -68,17 +68,19 @@
    list-style: none;
    padding-left: 20px;
    display: none;
-   color: rgb(88, 111, 241);
+   color: rgb(255, 200, 255);
  }
+
  
  .menu .title::before {
    content: '▶ ';
    font-size: 80%;
-   color: rgb(0, 51, 128);
+   color: rgb(245, 142, 228);
  }
 
  .menu.open .title::before {
    content: '▼ ';
+   
  }
  
  .menu.open ul {
@@ -157,3 +159,19 @@
   color: white;
   font-size: larger;
 }
+
+
+#clock{
+  color: #75306c;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  
+}
+
+#startstop {
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+
