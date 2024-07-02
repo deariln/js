@@ -1292,5 +1292,35 @@ function newDate() {
   clockStop.onclick = function clockStop() {
    clearInterval(timer)
  }
+{
+  //Создайте «Карусель» –- ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+  const carousel = document.getElementById('carousel') as HTMLDivElement
+  const width = 150
+  const count = 3
+  const list = carousel.querySelector('ul') as HTMLUListElement
+  list.style.marginLeft = 0+'px'
+  const allCount = list.children.length
+  const maxWidth = allCount*width
+  const viewWidth = count*width
 
- 
+  carousel.addEventListener('click', (e)=>{
+    const target = e.target as HTMLElement
+    if (target.classList.contains('arrow')) {
+      if (target.classList.contains('prev')) {
+        if (parseInt(list.style.marginLeft)==0) {
+          list.style.marginLeft = -maxWidth+viewWidth+'px'
+        } else {
+          list.style.marginLeft = parseInt(list.style.marginLeft) + width +'px'
+        }
+      } else {
+        if (parseInt(list.style.marginLeft)<=-maxWidth+viewWidth) {
+          list.style.marginLeft = 0+'px'
+        } else {
+          // if (parseInt(list.style.marginLeft) - width<-)
+          list.style.marginLeft = parseInt(list.style.marginLeft) - width +'px'
+
+        }
+      }
+    }
+  })
+}
