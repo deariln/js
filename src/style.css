@@ -177,7 +177,7 @@
 
 .carousel {
   position: relative;
-  width: 400px;
+  width: 450px;
   padding: 10px 40px;
   border: 1px solid #CCC;
   border-radius: 15px;
@@ -225,12 +225,12 @@
 }
 
 .gallery {
-  width: 390px;
+  width: 450px;
   overflow: hidden;
 }
 
 .gallery ul {
-  height: 130px;
+  height: 150px;
   width: 9999px;
   margin: 0;
   padding: 0;
