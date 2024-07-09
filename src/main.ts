@@ -1326,3 +1326,14 @@ function newDate() {
 }
 
 //Поймайте переход по ссылке
+const contents = document.getElementById('contents') as HTMLElement
+contents.addEventListener('click', (e)=>{
+  const target = e.target as HTMLElement
+  if (target.tagName != 'A' ){
+    return false
+  }
+   let targetA = confirm('Хотите покинуть страницу?')
+
+  return targetA ? true : e.preventDefault()
+})
+
