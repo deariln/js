@@ -1333,8 +1333,7 @@ contents.addEventListener('click', (e)=>{
     return false
   }
    let targetA = confirm('Хотите покинуть страницу?')
-
-  return targetA ? true : e.preventDefault()
+   return targetA ? true : e.preventDefault()
 })
 
 
@@ -1351,3 +1350,4 @@ document.addEventListener('click', (e) => {
   e.preventDefault()
 })
 
+//Перепишите один из примеров раздела Цепочка промисов, используя async/await вместо .then/catch:

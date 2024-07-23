@@ -248,6 +248,7 @@
   width: 550px;
   height: 400px;
   padding: 5px;
+  object-fit: cover;
 }
 
 #thumbs a {
@@ -265,6 +266,12 @@
 
 #thumbs li {
   list-style: none;
+}
+
+#thumbs li img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 #thumbs {
