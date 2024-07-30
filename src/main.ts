@@ -1,4 +1,5 @@
 import './style.scss'
+// import axios from 'axios'
 // console.log('4556') 
 // console.log('kkkk')
     
@@ -1340,7 +1341,8 @@ contents.addEventListener('click', (e)=>{
 //Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.
 
 const largeImg = document.querySelector('#largeImg') as HTMLImageElement
-document.addEventListener('click', (e) => {
+const thumbs = document.querySelector('#thumbs') as HTMLUListElement
+thumbs.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   let miniImg = target.closest('a') as HTMLAnchorElement
   if (miniImg) {
